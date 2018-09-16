@@ -1,20 +1,20 @@
-RegisterServerEvent('onPlayerDied')
-AddEventHandler('onPlayerDied', function(player, reason)
-    print('[DEAD] player ' .. GetPlayerName(player) .. ' died with reason ' .. tostring(reason))
+RegisterServerEvent('baseevents:onPlayerDied')
+RegisterServerEvent('baseevents:onPlayerKilled')
+RegisterServerEvent('baseevents:onPlayerWasted')
+RegisterServerEvent('baseevents:enteredVehicle')
+RegisterServerEvent('baseevents:leftVehicle')
+RegisterServerEvent('baseevents:printToServer')
 
-    TriggerClientEvent('onPlayerDied', -1, player, reason)
+AddEventHandler('baseevents:onPlayerDied', function(player, position)
+    print('[Dead] Player ' .. GetPlayerName(player) .. ' died.')
 end)
 
-RegisterServerEvent('onPlayerKilled')
-AddEventHandler('onPlayerKilled', function(player, attacker, reason)
-    print('[DEAD] player ' .. GetPlayerName(player) .. ' got killed by ' .. GetPlayerName(attacker) .. ' with reason ' .. tostring(reason))
-
-    TriggerClientEvent('onPlayerKilled', -1, player, attacker, reason)
+AddEventHandler('baseevents:onPlayerKilled', function(player, data)
+    print('[Dead] Player ' .. GetPlayerName(player) .. ' got killed by ' .. GetPlayerName(data.killer) .. ' with reason ' .. tostring(data.reason) .. '.')
 end)
 
-RegisterServerEvent('onPlayerWasted')
-AddEventHandler('onPlayerWasted', function(player)
-    TriggerClientEvent('onPlayerWasted', -1, source)
+AddEventHandler('baseevents:printToServer', function(msg)
+    print(msg)
 end)
 
 RegisterServerEvent('playerJoining')
@@ -25,13 +25,4 @@ end)
 RegisterServerEvent('sessionInitialized')
 AddEventHandler('sessionInitialized', function()
 	
-end)
-
-AddEventHandler('playerActivated', function()
-    print('[Join] ' .. GetPlayerName(source) .. ' (' .. source .. ') has joined the game.')
-end)
-
-RegisterServerEvent('playerSpawned')
-AddEventHandler('playerSpawned', function()
-    print('[Spawn] ' .. GetPlayerName(source) .. ' spawned.')
 end)

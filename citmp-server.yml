@@ -10,18 +10,10 @@ AutoStartResources:
     - spawnmanager
     - mapmanager
     - chat
-    - rconlog
     - betaguns
-    - keks
-    - play-midpa
     - obituary
     - obituary-deaths
-    #- race-test
-    #- ocw
-    #- lovelier
-    #- play-viiv
-    #- viiv-tdd
-    #- irc
+    - freeroam
 
 RconPassword: lovely
 
@@ -34,14 +26,17 @@ ScriptDebug: true
 #server slots limit (must be between 1 and 32)
 MaxPlayers: 32
 
+#server language
+Language: English
+
 #enable/disable clientside mods (like trainer)
 ScriptHookAllowed: true
 
 #enable/disable modified game files check
-CheckGameFiles: true
+CheckGameFiles: false
 
 #server password
-Password: changeme
+#Password: changeme
 
 #enable/disable server logs
 DebugLog: true

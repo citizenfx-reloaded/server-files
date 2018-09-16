@@ -1,4 +1,4 @@
-AddEventHandler('onPlayerDied', function(playerId, reason, position)
+AddEventHandler('baseevents:onPlayerDied', function(playerId, position)
     local player = GetPlayerByServerId(playerId)
 
     if player then
@@ -6,31 +6,31 @@ AddEventHandler('onPlayerDied', function(playerId, reason, position)
     end
 end)
 
-AddEventHandler('onPlayerKilled', function(playerId, attackerId, reason, position)
+AddEventHandler('baseevents:onPlayerKilled', function(playerId, data)
     local player = GetPlayerByServerId(playerId)
-    local attacker = GetPlayerByServerId(attackerId)
+    local attacker = GetPlayerByServerId(data.killer)
 
     local reasonString = 'killed'
 
-    if reason == 0 or reason == 56 or reason == 1 or reason == 2 then
+    if data.reason == 0 or data.reason == 56 or data.reason == 1 or data.reason == 2 then
         reasonString = 'meleed'
-    elseif reason == 3 then
+    elseif data.reason == 3 then
         reasonString = 'knifed'
-    elseif reason == 4 or reason == 6 or reason == 18 or reason == 51 then
+    elseif data.reason == 4 or data.reason == 6 or data.reason == 18 or data.reason == 51 then
         reasonString = 'bombed'
-    elseif reason == 5 or reason == 19 then
+    elseif data.reason == 5 or data.reason == 19 then
         reasonString = 'burned'
-    elseif reason == 7 or reason == 9 then
+    elseif data.reason == 7 or data.reason == 9 then
         reasonString = 'pistoled'
-    elseif reason == 10 or reason == 11 then
+    elseif data.reason == 10 or data.reason == 11 then
         reasonString = 'shotgunned'
-    elseif reason == 12 or reason == 13 or reason == 52 then
+    elseif data.reason == 12 or data.reason == 13 or data.reason == 52 then
         reasonString = 'SMGd'
-    elseif reason == 14 or reason == 15 or reason == 20 then
+    elseif data.reason == 14 or data.reason == 15 or data.reason == 20 then
         reasonString = 'assaulted'
-    elseif reason == 16 or reason == 17 then
+    elseif data.reason == 16 or data.reason == 17 then
         reasonString = 'sniped'
-    elseif reason == 49 or reason == 50 then
+    elseif data.reason == 49 or data.reason == 50 then
         reasonString = 'ran over'
     end
 

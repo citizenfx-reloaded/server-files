@@ -12,12 +12,13 @@ AddEventHandler('chatMessageEntered', function(name, color, message)
         TriggerClientEvent('chatMessage', -1, name, color, message)
     end
 
-    print('[CHAT] ' .. name .. ': ' .. message)
+    print('[Chat] ' .. name .. ': ' .. message)
 end)
 
 -- player join messages
 AddEventHandler('playerActivated', function()
     TriggerClientEvent('chatMessage', -1, '', { 0, 0, 0 }, '^2* ' .. GetPlayerName(source) .. ' joined.')
+    print('[Join] ' .. GetPlayerName(source) .. ' (' .. source .. ') has joined the game.')
 end)
 
 AddEventHandler('playerDropped', function(reason)
