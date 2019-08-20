@@ -41,6 +41,9 @@ CheckGameFiles: false
 #enable/disable server logs
 DebugLog: true
 
+#force stable/beta version
+#ForceVersion: beta
+
 # enjoy viiv
 #Imports:
 #    - ConfigURL: http://cache.lilycove.hacks.re/exports.json
