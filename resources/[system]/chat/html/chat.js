@@ -66,6 +66,7 @@ $(function()
 
     $('#chatInput')[0].onPress(function(e)
     {
+        // enter is 13 escape 27
         if (e.which == 13 || e.keyCode == 27)
         {
             $('#chatInputHas').hide();
@@ -76,7 +77,7 @@ $(function()
 
             if (e.which == 13)
             {
-                obj = { message: $(this).val() };
+                obj = { message: $(this).val().replace(/<[^>]+>/g, '') };
             }
 
             $(this).val('');
@@ -122,8 +123,8 @@ $(function()
                 var colorG = parseInt(item.color[1]);
                 var colorB = parseInt(item.color[2]);
 
-                var name = item.name.replace('<', '&lt;');
-                var message = item.message.replace('<', '&lt;');
+                var name = item.name.replace(/<[^>]+>/g, '');
+                var message = item.message.replace(/<[^>]+>/g, '');
 
                 message = colorize(message);
 
@@ -157,6 +158,7 @@ $(function()
 
         refetchData();
     }, false);
+    
     window.addEventListener('click', function (event)
     {
         $('#chatInputHas').hide();
@@ -176,6 +178,7 @@ $(function()
 
 window.addEventListener('keydown', function (event)
 {
+    // tab
     if (event.keyCode === 9)
     {
         event.preventDefault();

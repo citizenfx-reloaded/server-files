@@ -27,7 +27,7 @@
             }
 
             function syncTextbox() {
-                var tbVal = $tb.val().replace('<', '&lt;');
+                var tbVal = $tb.val().replace(/<[^>]+>/g, '');
                 var tbLen = tbVal.length;
                 var selStart = $tb.get(0).selectionStart;
                 var selEnd = $tb.get(0).selectionEnd;
