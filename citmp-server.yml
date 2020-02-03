@@ -44,6 +44,9 @@ DebugLog: true
 #force stable/beta version
 #ForceVersion: beta
 
+#enable/disable client script encryption (beta only!)
+Encryption: false
+
 # enjoy viiv
 #Imports:
 #    - ConfigURL: http://cache.lilycove.hacks.re/exports.json
